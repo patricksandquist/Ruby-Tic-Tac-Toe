@@ -10,6 +10,8 @@ class ComputerPlayer < Player
       end
     end
 
+    puts "No moves!" if blanks.empty? # shouldn't happen...
+
     blanks.sample
   end
 end
