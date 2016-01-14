@@ -19,6 +19,10 @@ class Board
     won? || full?
   end
 
+  def full?
+    @grid.flatten.none? { |el| el == :b }
+  end
+
   def won?
     # Are any of the 8 possible trios matching and not blank?
     trios.any? do |trio|
@@ -42,14 +46,6 @@ class Board
   def diagonals
     [[[0, 0], [1, 1], [2, 2]], [[0, 2], [1, 1], [2, 0]]].map do |diagonal|
       diagonal.map { |pos| self[pos] }
-    end
-  end
-
-  def full?
-    @grid.none? do |row|
-      row.none? do |el|
-        el == :b
-      end
     end
   end
 end
