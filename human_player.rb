@@ -3,7 +3,7 @@ require_relative "player.rb"
 class HumanPlayer < Player
   def get_move(board, mark)
     print_board(board)
-    puts "Where would you like to move next?"
+    puts "#{name}, where would you like to put a #{mark.to_s.upcase} next?"
     gets.chomp.split(",")
   end
 
