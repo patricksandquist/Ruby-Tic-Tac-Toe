@@ -1,25 +1,27 @@
 require_relative "player.rb"
+require_relative "board.rb"
 
 class TicTacToe
-  def initialize(*players)
-    @players = players
-    initialize_board
+  def initialize(player1, player2)
+    @players = [player1, player2]
+    @current_mark = :x
+    @board = Board.new
   end
 
   def run
+    # 
   end
 
   private
 
-  def initialize_board
-    # Make board and start everything as blank
-    @board = Array.new(3) { Array.new(3) }
+  def current_player
+    @players.first
+  end
 
-    @board.each do |row|
-      row.each do |el|
-        el = :b
-      end
-    end
+  def next_player!
+    @players.rotate!
+
+    @current_mark = @current_mark == :x ? :o : :x
   end
 end
 
