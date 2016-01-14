@@ -9,10 +9,41 @@ class TicTacToe
   end
 
   def run
-    # 
+    until @board.over?
+      take_turn
+      next_player!
+    end
+
+    if @board.won?
+      puts "#{@board.winner} has won the game!"
+    else
+      puts "Tie game!"
+    end
   end
 
   private
+
+  def take_turn
+    move = current_player.get_move(@board, @current_mark)
+
+    until valid_move?(move)
+      # Let the player know that their move was invalid
+      current_player.alert_invalid_move
+      # Redo move
+      move = current_player.get_move(@board, @current_mark)
+    end
+
+    # Make move
+    @board.place_mark(move, @current_mark)
+  end
+
+  def valid_move?(move)
+    # Make sure the move is in range
+    return false unless move.all? { |el| (0..2).include?(el) }
+
+    # Make sure there is not a mark already there
+    @board[move] == :b
+  end
 
   def current_player
     @players.first

@@ -15,6 +15,10 @@ class Board
     @grid[row][col]
   end
 
+  def place_mark(pos, mark)
+    @grid[pos] = mark
+  end
+
   def over?
     won? || full?
   end
