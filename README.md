@@ -3,6 +3,4 @@ The classic tic tac toe game for the console, written in Ruby. Includes support
 for multiple players and AI.
 
 ## License
-[Tic Tac Toe] is released under the [MIT License](http://www.opensource.org/licenses/MIT).
-
-[Tic Tac Toe]: https://en.wikipedia.org/wiki/Ghost_(game)
+Tic Tac Toe is released under the [MIT License](http://www.opensource.org/licenses/MIT).
