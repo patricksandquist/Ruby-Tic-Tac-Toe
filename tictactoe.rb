@@ -1,4 +1,6 @@
 require_relative "player.rb"
+require_relative "human_player.rb"
+require_relative "computer_player.rb"
 require_relative "board.rb"
 
 class TicTacToe
@@ -13,6 +15,8 @@ class TicTacToe
       take_turn
       next_player!
     end
+
+    puts @board.to_s
 
     if @board.won?
       puts "#{@board.winner} has won the game!"
@@ -38,6 +42,7 @@ class TicTacToe
   end
 
   def valid_move?(move)
+    return false unless move.length == 2
     # Make sure the move is in range
     return false unless move.all? { |el| (0..2).include?(el) }
 

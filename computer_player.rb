@@ -6,13 +6,7 @@ class ComputerPlayer < Player
   end
 
   def get_move(board, mark)
-    blanks = []
-
-    board.each_with_index do |row, i|
-      row.each_with_index do |el, j|
-        blanks << [i, j] if el == :b
-      end
-    end
+    blanks = board.blanks
 
     puts "No moves!" if blanks.empty? # shouldn't happen...
 
